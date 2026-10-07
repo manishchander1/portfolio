@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manish Chander</title>
+<meta name="description" content="Manish Chander. Chemical engineering student at UT Austin building hardware for semiconductor packaging and thermal management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --surface: #ffffff;
+    --ink: #16181b;
+    --muted: #5d636b;
+    --line: #dcdad3;
+    --accent: #c2410c;
+    --accent-soft: #fbe9df;
+    --grid: rgba(22, 24, 27, 0.045);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111316;
+      --surface: #181b1f;
+      --ink: #ecebe6;
+      --muted: #9aa0a8;
+      --line: #2a2e34;
+      --accent: #f97316;
+      --accent-soft: #2a1a10;
+      --grid: rgba(236, 235, 230, 0.04);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: var(--ink);
+    font-family: "Inter Tight", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  nav .name { font-weight: 600; text-decoration: none; letter-spacing: -0.01em; }
+  nav ul { display: flex; gap: 22px; list-style: none; font-size: 14px; }
+  nav ul a { text-decoration: none; color: var(--muted); }
+  nav ul a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: 96px 0 72px; }
+  .tag { font-size: 13px; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; }
+  h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.04; letter-spacing: -0.03em; font-weight: 700; max-width: 14ch; }
+  .lede { font-size: 20px; color: var(--muted); max-width: 58ch; margin-top: 24px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border: 1px solid var(--line); border-radius: 6px;
+    background: var(--surface); text-decoration: none; font-size: 15px; font-weight: 500;
+  }
+  .btn:hover { border-color: var(--ink); }
+  .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin-top: 56px; }
+  .stats div { padding: 18px 20px; border-right: 1px solid var(--line); }
+  .stats div:last-child { border-right: 0; }
+  .stats b { display: block; font-size: 15px; }
+  .stats span { font-size: 13px; color: var(--muted); }
+
+  /* Sections */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; }
+  .section-head .num { font-size: 13px; color: var(--accent); }
+  h2 { font-size: 30px; letter-spacing: -0.02em; font-weight: 650; }
+
+  /* Projects */
+  .project { display: grid; grid-template-columns: 1.05fr 1fr; gap: 36px; padding: 36px 0; border-bottom: 1px dashed var(--line); }
+  .project:last-child { border-bottom: 0; }
+  .media {
+    aspect-ratio: 4 / 3; border: 1px solid var(--line); border-radius: 8px;
+    background: repeating-linear-gradient(135deg, var(--surface) 0 12px, var(--bg) 12px 24px);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--muted); font-size: 12px; padding: 20px; overflow: hidden;
+  }
+  .media img, .media video { width: 100%; height: 100%; object-fit: cover; }
+  .meta { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
+  h3 { font-size: 23px; letter-spacing: -0.015em; line-height: 1.25; margin-bottom: 14px; }
+  .project p { color: var(--ink); margin-bottom: 14px; }
+  .project dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 14px; font-size: 15px; margin-top: 4px; }
+  .project dt { font-size: 12px; color: var(--accent); padding-top: 3px; }
+  .project dd { color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .chip { font-size: 12px; padding: 3px 9px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+
+  .small-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 22px; }
+  .card h3 { font-size: 19px; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: 15.5px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .skills h4 { font-size: 12px; color: var(--accent); font-weight: 500; margin-bottom: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .skills ul { list-style: none; font-size: 15.5px; }
+  .skills li { padding: 6px 0; border-bottom: 1px solid var(--line); }
+
+  footer { padding: 56px 0 72px; border-top: 1px solid var(--line); }
+  footer h2 { margin-bottom: 12px; }
+  footer p { color: var(--muted); max-width: 52ch; margin-bottom: 24px; }
+
+  @media (max-width: 760px) {
+    nav ul { display: none; }
+    .hero { padding: 64px 0 48px; }
+    .stats { grid-template-columns: 1fr; }
+    .stats div { border-right: 0; border-bottom: 1px solid var(--line); }
+    .stats div:last-child { border-bottom: 0; }
+    .project, .small-grid, .skills { grid-template-columns: 1fr; }
+    .project { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#top">Manish Chander</a>
+    <ul class="mono">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#more">More</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="tag mono">Chemical Engineering · UT Austin · Class of 2029</p>
+    <h1>I build hardware for chip packaging and thermal.</h1>
+    <p class="lede">I'm a chemical engineering student with a minor in Semiconductor Science and Engineering. I like projects where I design the thing, machine the parts, wire it up, and then measure whether it actually works.</p>
+    <div class="links">
+      <a class="btn primary" href="resume.pdf">Resume (PDF)</a>
+      <a class="btn" href="mailto:manish.n.chander@gmail.com">Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/manishchander">LinkedIn</a>
+    </div>
+    <div class="stats">
+      <div><b>Nanoscale Design &amp; Manufacturing Lab</b><span>Undergrad researcher, additive microsystems</span></div>
+      <div><b>Texas Institute for Electronics</b><span>Cleanroom and CMOS process training</span></div>
+      <div><b>GPA 3.9 / 4.0</b><span>B.S. Chemical Engineering</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head"><span class="num mono">01</span><h2>Selected work</h2></div>
+
+    <article class="project">
+      <div class="media mono">[ photo / GIF: DLP printer running ]</div>
+      <div>
+        <p class="meta mono">Jan 2026 to present · Nanoscale Design &amp; Manufacturing Lab</p>
+        <h3>Custom DLP printer for printing chip interconnects</h3>
+        <p>Advanced packaging needs fine metal wiring (redistribution layers) between chips. I'm building a digital light processing printer from scratch to print those structures with conductive resins.</p>
+        <dl>
+          <dt class="mono">BUILT</dt><dd>Designed the printer in SolidWorks, machined parts in-house, measured flatness with a CMM, and wrote tip/tilt correction code to level the build platform.</dd>
+          <dt class="mono">MATERIALS</dt><dd>Worked on silver/acrylate photopolymer resins for printing interconnects.</dd>
+          <dt class="mono">MODELING</dt><dd>Modeled the light-curing chemistry and trained a PyTorch model that predicts print resolution from exposure dose, development time, and composition, then used it to find recipes with fewer defects.</dd>
+        </dl>
+        <div class="chips mono"><span class="chip">SolidWorks</span><span class="chip">Machining</span><span class="chip">CMM metrology</span><span class="chip">Python / PyTorch</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="media mono">[ photo: two-plate platform + liquid loop ]<br>[ plot: zone temps vs. time ]</div>
+      <div>
+        <p class="meta mono">Sep 2025 to present · Texas Materials Scientists &amp; Engineers</p>
+        <h3>Dual-zone liquid-cooled thermal test platform</h3>
+        <p>A test bed that holds two plates at different, stable temperatures side by side, so materials and parts can be tested under a controlled temperature difference.</p>
+        <dl>
+          <dt class="mono">BUILT</dt><dd>Two plates driven by independent Peltier modules, separated by an insulating barrier.</dd>
+          <dt class="mono">COOLING</dt><dd>Added heat sinks and a recirculating liquid-cooling loop to pull heat away faster and even out temperature across each plate.</dd>
+          <dt class="mono">RESULT</dt><dd>Stable, well-separated temperature zones for controlled thermal testing.</dd>
+        </dl>
+        <div class="chips mono"><span class="chip">Thermal design</span><span class="chip">Peltier control</span><span class="chip">Liquid cooling</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="media mono">[ photo: EMG enclosure, open + assembled ]</div>
+      <div>
+        <p class="meta mono">Sep 2025 to May 2026 · Longhorn Neurotech</p>
+        <h3>Compact EMG sensor enclosure</h3>
+        <p>Led the mechanical design of a wearable housing that fits the electronics, sensors, and battery for a muscle-signal (EMG) sensor.</p>
+        <dl>
+          <dt class="mono">BUILT</dt><dd>Designed the enclosure, soldered the assembly, and routed power and signal paths.</dd>
+          <dt class="mono">CONSTRAINT</dt><dd>Keep everything electrically isolated and mechanically stable in a small package.</dd>
+        </dl>
+        <div class="chips mono"><span class="chip">CAD</span><span class="chip">Soldering</span><span class="chip">Team lead</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <div class="section-head"><span class="num mono">02</span><h2>More</h2></div>
+    <div class="small-grid">
+      <div class="card">
+        <p class="meta mono">Aug 2026 to present</p>
+        <h3>Semiconductor manufacturing training</h3>
+        <p>Hands-on cleanroom training at the Texas Institute for Electronics covering the CMOS process flow (oxidation, implant, lithography, etch, CMP, metallization), vacuum and gas delivery, plasma processing, and statistical process control.</p>
+      </div>
+      <div class="card">
+        <p class="meta mono">Jan 2026 to May 2026</p>
+        <h3>Computational materials screening</h3>
+        <p>Used DFT simulations in VASP to study proton transport in battery materials and screen compositions by stability and electronic structure.</p>
+      </div>
+      <div class="card">
+        <p class="meta mono">Aug 2026 to present</p>
+        <h3>Professional Development Head, TMSE</h3>
+        <p>Run CAD, FEA, welding, and soft-skills workshops for members of the Texas Materials Scientists and Engineers org.</p>
+      </div>
+      <div class="card">
+        <p class="meta mono">Coursework, Spring 2027</p>
+        <h3>Packaging and thermal focus</h3>
+        <p>Advanced Packaging, Thermal Management for Microelectronics, Transport Phenomena, and Applied Statistics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head"><span class="num mono">03</span><h2>Tools I use</h2></div>
+    <div class="skills">
+      <div>
+        <h4 class="mono">Process &amp; metrology</h4>
+        <ul><li>Cleanroom processing</li><li>SEM</li><li>CMM</li><li>Statistical process control</li><li>JMP</li></ul>
+      </div>
+      <div>
+        <h4 class="mono">Design &amp; build</h4>
+        <ul><li>SolidWorks</li><li>Fusion 360 / Onshape</li><li>Machining</li><li>Soldering</li><li>ANSYS (FEA, thermal)</li></ul>
+      </div>
+      <div>
+        <h4 class="mono">Code &amp; modeling</h4>
+        <ul><li>Python</li><li>PyTorch</li><li>MATLAB</li><li>VASP (DFT)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>I'm looking for summer internships in semiconductor packaging, process engineering, and thermal hardware.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:manish.n.chander@gmail.com">manish.n.chander@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/manishchander">LinkedIn</a>
+      <a class="btn" href="resume.pdf">Resume (PDF)</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
