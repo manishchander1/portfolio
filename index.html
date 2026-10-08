@@ -47,11 +47,13 @@
   /* Hero */
   .hero { position: relative; padding: 112px 0 96px; isolation: isolate; }
   .hero::before {
-    content: ""; position: absolute; inset: -120px 0 0; z-index: -1; pointer-events: none;
+    content: ""; position: absolute; inset: -160px -10vw -240px; z-index: -1; pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent); mask-image: linear-gradient(to bottom, #000 60%, transparent);
     background:
-      radial-gradient(60% 55% at 78% 20%, rgba(4,63,150,0.55), rgba(6,18,37,0.18) 60%, transparent 75%),
-      radial-gradient(30% 30% at 62% 38%, rgba(255,99,99,0.28), transparent 70%);
-    filter: blur(24px);
+      radial-gradient(45% 55% at 80% 28%, rgba(255,99,99,0.30), rgba(69,35,36,0.35) 45%, transparent 75%),
+      radial-gradient(40% 45% at 12% 85%, rgba(140,30,34,0.28), transparent 70%),
+      radial-gradient(50% 40% at 60% 0%, rgba(69,35,36,0.5), transparent 70%);
+    filter: blur(30px);
   }
   .hero-grid { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
   .headshot { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; box-shadow: var(--key), rgba(0,0,0,0.4) 0 30px 50px 0; }
@@ -132,6 +134,24 @@
     .lead-card { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
     .gallery figure { grid-column: span 12; }
   }
+  /* Dark red atmosphere */
+  body { background:
+      radial-gradient(900px 600px at 100% 900px, rgba(120,28,32,0.16), transparent 70%),
+      radial-gradient(800px 600px at 0% 1900px, rgba(120,28,32,0.14), transparent 70%),
+      radial-gradient(900px 700px at 100% 3000px, rgba(120,28,32,0.14), transparent 70%),
+      var(--canvas); }
+  section { border-top-color: rgba(255,99,99,0.10); position: relative; }
+  section::before { content: ""; position: absolute; top: -1px; left: 50%; width: min(600px, 80%); height: 1px; transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, rgba(255,99,99,0.45), transparent); }
+  .headshot { box-shadow: var(--key), 0 30px 80px -10px rgba(200,40,45,0.35), 0 0 0 1px rgba(255,99,99,0.15); }
+  .media, .gallery figure, .card, .stats { box-shadow: var(--key), 0 24px 60px -24px rgba(180,30,36,0.35); }
+  .card, .stats { background: linear-gradient(160deg, rgba(69,35,36,0.35), var(--card) 55%); }
+  .lead-card { background: radial-gradient(120% 140% at 0% 0%, rgba(255,99,99,0.22), var(--ember) 35%, var(--card) 85%);
+    box-shadow: var(--key), 0 30px 80px -20px rgba(200,40,45,0.45); }
+  .section-head .num { color: rgba(255,99,99,0.7); }
+  .btn:hover { box-shadow: 0 0 0 1px rgba(255,99,99,0.4), 0 8px 24px -6px rgba(255,99,99,0.45); }
+  .chip { background: rgba(69,35,36,0.7); color: #f3d6d6; }
+  nav .wrap { box-shadow: 0 10px 40px -12px rgba(200,40,45,0.35); }
 </style>
 </head>
 <body>
