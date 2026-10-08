@@ -136,11 +136,14 @@
   .media.natural { aspect-ratio: auto; background: none; }
   .media.natural img { height: auto; display: block; }
   figcaption { font-size: 11.5px; color: var(--muted); padding: 8px 12px; border-top: 1px solid var(--line); background: var(--surface); }
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 0 0 36px; border-bottom: 1px dashed var(--line); }
+  .gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; padding: 0 0 36px; border-bottom: 1px dashed var(--line); }
   .gallery figure { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
-  .gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+  .gallery figure { grid-column: span 3; }
+  .gallery figure.w { grid-column: span 4; }
+  .gallery figure.w img { aspect-ratio: 2 / 1; }
+  .gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
   .gallery figcaption b { display: block; color: var(--ink); font-weight: 500; }
-  @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .gallery figure, .gallery figure.w { grid-column: span 6; } }
   .gallery-head { margin: -8px 0 12px; }
 </style>
 </head>
@@ -174,9 +177,9 @@
     <img class="headshot" src="img/headshot.jpg" alt="Manish Chander" width="960" height="1200">
     </div>
     <div class="stats">
-      <div><b>Nanoscale Design &amp; Manufacturing Lab</b><span>Undergrad researcher, additive microsystems</span></div>
-      <div><b>Professional Development Chair</b><span>Texas Materials Scientists &amp; Engineers</span></div>
-      <div><b>GPA 3.9 / 4.0</b><span>B.S. ChemE, minor in Semiconductor Sci. &amp; Eng.</span></div>
+      <div><b>Nanoscale Design &amp; Manufacturing Lab</b><span>Researcher in additive manufacturing of microelectronics</span></div>
+      <div><b>Texas Materials Scientists &amp; Engineers</b><span>Professional Development Chair</span></div>
+      <div><b>B.S. ChemE, Minor in Semiconductor Sci. &amp; Eng.</b><span>Heterogeneous Integration Track · GPA 3.9/4.0</span></div>
     </div>
   </div>
 </header>
@@ -200,12 +203,13 @@
     </article>
     <p class="meta mono gallery-head">From print to working conductor</p>
     <div class="gallery">
-      <figure><img src="img/dlp-1-printed.jpg" alt="Circuit pattern right after printing" loading="lazy"><figcaption class="mono"><b>1 · Printed</b> Circuit pattern right after printing</figcaption></figure>
-      <figure><img src="img/dlp-2-silver.jpg" alt="After curing the silver in the print" loading="lazy"><figcaption class="mono"><b>2 · Silver cured</b> After curing the silver in the print</figcaption></figure>
-      <figure><img src="img/dlp-3-annealed.jpg" alt="After heat treatment to make it conductive" loading="lazy"><figcaption class="mono"><b>3 · Annealed</b> After heat treatment to make it conductive</figcaption></figure>
+      <figure class="w"><img src="img/dlp-1-printed.jpg" alt="Circuit pattern right after printing" loading="lazy"><figcaption class="mono"><b>1 · Printed</b> Circuit pattern right after printing</figcaption></figure>
+      <figure class="w"><img src="img/dlp-2-silver.jpg" alt="After curing the silver in the print" loading="lazy"><figcaption class="mono"><b>2 · Silver cured</b> After curing the silver in the print</figcaption></figure>
+      <figure class="w"><img src="img/dlp-3-annealed.jpg" alt="After heat treatment to make it conductive" loading="lazy"><figcaption class="mono"><b>3 · Annealed</b> After heat treatment to make it conductive</figcaption></figure>
+      <figure><img src="img/dlp-7-tracks.jpg" alt="Printed lines and gaps at the 10 µm scale" loading="lazy"><figcaption class="mono"><b>Fine lines</b> Printed lines and gaps at the 10 µm scale</figcaption></figure>
+      <figure><img src="img/dlp-6-longhorn.jpg" alt="Longhorn logo printed at sub-millimeter scale" loading="lazy"><figcaption class="mono"><b>Fine features</b> Longhorn logo printed at sub-millimeter scale</figcaption></figure>
       <figure><img src="img/dlp-4-profile.jpg" alt="Height map of a printed pad and trace" loading="lazy"><figcaption class="mono"><b>3D surface scan</b> Height map of a printed pad and trace</figcaption></figure>
       <figure><img src="img/dlp-5-probe.jpg" alt="Four-point probe on a printed film" loading="lazy"><figcaption class="mono"><b>Electrical testing</b> Four-point probe on a printed film</figcaption></figure>
-      <figure><img src="img/dlp-6-longhorn.jpg" alt="Longhorn logo printed at sub-millimeter scale" loading="lazy"><figcaption class="mono"><b>Fine features</b> Longhorn logo printed at sub-millimeter scale</figcaption></figure>
     </div>
 
     <article class="project">
@@ -254,12 +258,12 @@
       <div class="card">
         <p class="meta mono">Aug 2026 to May 2027</p>
         <h3>U-STARS semiconductor manufacturing program</h3>
-        <p>Run by Austin Community College and the Texas Institute of Electronics. Hands-on cleanroom training covering the CMOS process flow (oxidation, ion implantation, lithography, etch, CMP, metallization), vacuum and gas delivery, plasma processing, and statistical process control.</p>
+        <p>Run by the Texas Institute of Electronics. Technical and hands-on cleanroom training covering the CMOS process flow (oxidation, ion implantation, lithography, etch, CMP, metallization), vacuum and gas delivery, plasma processing, and statistical process control.</p>
       </div>
       <div class="card">
         <p class="meta mono">Spring 2027</p>
-        <h3>Packaging and thermal coursework</h3>
-        <p>Advanced Packaging, Thermal Management for Microelectronics, Transport Phenomena, and Applied Statistics.</p>
+        <h3>Upcoming coursework</h3>
+        <p>Advanced Packaging, Micro &amp; Nanofabrication, Thermal Management for Microelectronics, Transport Phenomena, and Applied Statistics.</p>
       </div>
     </div>
   </div>
