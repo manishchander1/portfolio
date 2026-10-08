@@ -132,6 +132,10 @@
   .lead-card li { padding: 10px 0; border-bottom: 1px solid var(--line); }
   .lead-card li:last-child { border-bottom: 0; }
   @media (max-width: 760px) { .lead-card { grid-template-columns: 1fr; padding: 22px; } }
+  .media-stack { display: grid; gap: 16px; }
+  .media.natural { aspect-ratio: auto; background: none; }
+  .media.natural img { height: auto; display: block; }
+  figcaption { font-size: 11.5px; color: var(--muted); padding: 8px 12px; border-top: 1px solid var(--line); background: var(--surface); }
 </style>
 </head>
 <body>
@@ -190,15 +194,19 @@
     </article>
 
     <article class="project">
-      <figure class="media"><img src="img/thermal-platform.jpg" alt="Dual-zone thermal platform with Peltier plate on top of an insulated reservoir" loading="lazy"></figure>
+      <div class="media-stack">
+        <figure class="media natural"><img src="img/thermal-platform.jpg" alt="Hot/cold plate prototype: Peltier modules on the lid of an insulated liquid reservoir" loading="lazy"><figcaption class="mono">The build: Peltier plates on top, liquid-cooled reservoir below</figcaption></figure>
+        <figure class="media natural"><img src="img/templates-concept.jpg" alt="A student's hand-drawn concept for Templates, plates that keep food hot or cold" loading="lazy"><figcaption class="mono">The original concept, drawn by a K-8 student</figcaption></figure>
+      </div>
       <div>
-        <p class="meta mono">Sep 2025 to present · Texas Materials Scientists &amp; Engineers</p>
-        <h3>Dual-zone liquid-cooled thermal test platform</h3>
-        <p>A test bed that holds two plates at different, stable temperatures side by side, so materials and parts can be tested under a controlled temperature difference.</p>
+        <p class="meta mono">Sep 2025 to present · TMSE · UT Girl Day</p>
+        <h3>Templates: turning a kid's invention into a real hot/cold plate</h3>
+        <p>Women in STEM runs a competition where K-8 girls across Texas invent contraptions on paper. Our TMSE team takes those designs, builds working versions, and showcases them at UT Girl Day.</p>
+        <p>One student drew "Templates," plates that keep your food either hot or cold. I was the thermal hardware engineer turning that drawing into a working device.</p>
         <dl>
-          <dt class="mono">BUILT</dt><dd>Two plates driven by independent Peltier modules, separated by an insulating barrier.</dd>
-          <dt class="mono">COOLING</dt><dd>Added heat sinks and a recirculating liquid-cooling loop to pull heat away faster and even out temperature across each plate.</dd>
-          <dt class="mono">RESULT</dt><dd>Stable, well-separated temperature zones for controlled thermal testing.</dd>
+          <dt class="mono">BUILT</dt><dd>Two plates driven by independent Peltier modules, separated by an insulating barrier, so one side runs hot while the other runs cold.</dd>
+          <dt class="mono">COOLING</dt><dd>Added heat sinks and a recirculating liquid-cooling loop to pull heat away faster and keep temperature even across each plate.</dd>
+          <dt class="mono">RESULT</dt><dd>Stable, well-separated hot and cold zones on one platform.</dd>
         </dl>
         <div class="chips mono"><span class="chip">Thermal design</span><span class="chip">Peltier control</span><span class="chip">Liquid cooling</span></div>
       </div>
